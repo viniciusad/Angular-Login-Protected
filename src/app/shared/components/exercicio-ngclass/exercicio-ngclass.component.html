@@ -1,0 +1,23 @@
+<body>
+    <p>exercicio-ngclass works!</p>
+
+    <button (click)="tornarVerde()">Tornar Verde</button>
+    <button (click)="tornarVermelho()">Tornar Vermelho</button>
+    <br>
+    <!-- <h2 [ngClass]="testeCores ? 'verde' : 'vermelho'">TESTE 1</h2> -->
+    <h1 [ngClass]="{
+        'verde desliza-esquerda': testeCores, 
+        'vermelho desliza-direita': !testeCores
+    }">
+    TESTANDO
+    </h1>
+
+    <h2 [class]="testeCores ? 'verde' : 'vermelho'">
+        TESTE 1 PropertyBinding Class
+    </h2>
+
+    <h2 [class.verde]="testeCores">
+        TESTE 2 PropertyBinding Class
+    </h2>
+
+</body>

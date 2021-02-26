@@ -1,0 +1,23 @@
+body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.verde {
+  color: rgb(0, 175, 0);
+}
+.vermelho {
+  color: rgb(175, 0, 0);
+}
+.desliza-direita {
+  transform: translateX(100px);
+  transition: 2s ease-in;
+  transition: 2s ease-out;
+}
+.desliza-esquerda {
+  transform: translateX(-100px);
+  transition: 2s ease-in;
+  transition: 2s ease-out;
+}

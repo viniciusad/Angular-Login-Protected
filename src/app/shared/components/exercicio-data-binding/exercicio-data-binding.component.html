@@ -1,0 +1,37 @@
+<body>
+    <!-- EXEMPLOS DE EVENT BINDING -->
+    <h2>Valor atual de valorContador: {{ valorContador }} </h2>
+    <app-exercicio-contador
+        [(valor)]="valorContador"
+    ></app-exercicio-contador>
+    <hr>
+
+
+    <main class="principal center">
+        <button (click)="onClickBotaoEmissor($event)">
+            Emitir info de clique.
+        </button>
+    </main>
+    <hr>
+
+
+    <!-- EXEMPLOS DE PROPERTY BINDING -->
+    <main class="principal center">
+        <h2>Input: <input type="text" [value]="initialValue"> </h2>
+        <button [disabled]="isDisabled">Habilita em 5 seg</button>
+    </main>
+
+    <h2>Palavra: {{ word }}</h2>
+    <h2>Cor: {{ color }}</h2>
+
+    <h3 class="center">Chamando Imagem com img [src]="imageURL"</h3>
+    <main class="principal center">
+        <img [src]="imageURL">
+    </main>
+
+    <p class="center" [attr.aria-label]="isDisabled ? 'Botão desabilitado' : accessibilityText">
+        Texto para ser lido pelo leitor de tela
+    </p>
+
+
+</body>

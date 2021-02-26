@@ -1,0 +1,54 @@
+<body cz-shortcut-listen="true">
+    <div class="container flex-center">
+        <form #form="ngForm" (ngSubmit)="onSubmit(form)" class="form-signin text-center">
+            <div class="text-center mb-4">
+                <img class="mb-4" src="https://image.flaticon.com/icons/png/512/295/295128.png" alt="" width="72" height="72">
+                <h5 class="card-title">Faça login para acessar suas informações</h5>
+                <div class="spinner-border text-light p-5" role="status" *ngIf="estaCarregando">
+                    <span class="sr-only">Loading...</span>
+                </div>
+                <div *ngIf="erroCarregamento">
+                    <h3 class="alert-danger rounded p-1">Erro ao logar</h3>
+                </div>
+            </div>
+
+            <div class="form-label-group mt-3">
+                <!-- <label for="inputEmail">Email</label> -->
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
+                    </div>
+                        <input type="email" id="inputEmail" class="form-control rounded-right" 
+                        [(ngModel)]="email" [ngClass]="exibeErro('email', form) ? 'is-invalid' : ''"
+                        placeholder="email@email.com" name="email" email required #emailInput>
+                    <p class="invalid-feedback rounded text-center" *ngIf="exibeErro('email', form)">
+                        Digite um email válido
+                    </p>
+                </div>
+            </div>
+
+            <div class="form-label-group mt-3">
+                <!-- <label for="inputPassword">Senha</label> -->
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-default">Senha</span>
+                    </div>
+                        <input type="password" id="inputPassword" class="form-control rounded-right" 
+                        [(ngModel)]="password" [ngClass]="exibeErro('email', form) ? 'is-invalid' : ''"
+                        placeholder="senha: 123" name="password" password required #passwordInput>
+                    <p class="invalid-feedback rounded text-center" *ngIf="exibeErro('password', form)">
+                        Senha inválida
+                    </p>
+                </div>
+            </div>
+
+            <div class="checkbox">
+                <label>
+                <input type="checkbox" value="remember-me"> Lembrar login
+                </label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="estaCarregando">Entrar</button>
+            <p class="mt-5 mb-3 text-muted text-center">© 2020-2021</p>
+        </form>
+    </div>
+</body>

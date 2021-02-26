@@ -1,0 +1,37 @@
+.header {
+  text-align: center;
+  width: 100%;
+  padding: 0;
+  background-color: #492476;
+
+  &__title {
+    color: #fff;
+    margin: 0;
+    padding: 10px;
+    font-size: 2rem;
+  }
+
+  .nav-bar-list {
+    background-color: #643c96;
+    padding: 0;
+
+    li {
+      display: inline;
+
+      a {
+        display: inline-block;
+        color: #fff;
+        font-weight: 800;
+        padding: 14px 16px;
+        text-decoration: none;
+      }
+      .ativado {
+        background-color: #492476;
+        text-decoration: underline;
+      }
+    }
+    a:hover {
+      background-color: #492476;
+    }
+  }
+}

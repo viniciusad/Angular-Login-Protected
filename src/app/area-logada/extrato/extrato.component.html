@@ -1,0 +1,36 @@
+<body>
+    <div class="container text-center">
+        <div class="spinner-border text-light p-5" role="status" *ngIf="estaCarregando">
+            <span class="sr-only">Loading...</span>
+        </div>
+        <div *ngIf="erroCarregamento">
+            <h2>Extrato não carregado</h2>
+            <button (click)="carregarExtrato()">Tentar novamente</button>
+        </div>
+        <div class="flex-auto">
+            <div class="d-flex justify-content-around">
+                <button class="btn btn-light mb-3" (click)="paginaAnterior()" [disabled]="pagina === 1">Página anterior</button>
+                <h5 class="text-justify p-3">Pág: {{ pagina }} </h5>
+                <button class="btn btn-light mb-3" (click)="paginaSeguinte()">Página seguinte</button>
+            </div>
+
+            <table class="table table-dark table-striped" *ngIf="!estaCarregando && !erroCarregamento">
+                <tr>
+                    <th> ID </th>
+                    <th> Data </th>
+                    <th> Descrição </th>
+                    <th> Valor </th>
+                    <th> Categoria </th>
+                </tr>
+
+                <tr *ngFor="let transacao of transacoes">
+                    <td> {{ transacao.id }} </td>
+                    <td> {{ transacao.data | date:"dd/MM/yyyy" }} </td>
+                    <td> {{ transacao.descricao }} </td>
+                    <td> {{ transacao.valor | currency:'BRL' }} </td>
+                    <td> {{ transacao.categoria }} </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>

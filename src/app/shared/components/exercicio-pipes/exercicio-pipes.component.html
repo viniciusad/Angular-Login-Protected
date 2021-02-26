@@ -1,0 +1,13 @@
+<!-- number ==> min 1 nº antes da vírgula . 1 nº depois da vírgula - max 2 nº depois da vírgula -->
+
+<ul>
+    <li *ngFor="let compra of compras">
+        <h3> Produto: {{ compra.produto | uppercase }} </h3>
+        <h4> Valor: {{ compra.valor | currency:'BRL' }} </h4>
+        <p> Quantidade: {{ compra.quantidade | number }} </p>
+        <p> Peso: {{ getPesoFormatado(compra.peso) }} </p>
+        <!-- <p>Peso: {{ compra.peso > 0 ? (compra.peso | number:'1.1-2') + ' Kg' : 'sem peso'}}</p> -->
+        <!-- <p> Peso: {{ compra.peso | number:'1.1-2' }} Kg </p> -->
+        <p> Data: {{ compra.data | date: 'dd-MM-yyyy' }} </p>
+    </li>
+</ul>

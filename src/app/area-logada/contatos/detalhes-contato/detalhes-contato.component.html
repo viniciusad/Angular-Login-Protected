@@ -1,0 +1,19 @@
+<div class="text-center col p-3">
+    <div class="spinner-border p-5" role="status" *ngIf="estaCarregando">
+        <span class="sr-only">Loading...</span>
+    </div>
+    <div *ngIf="erroCarregamento">
+        <h2>Deu erro</h2>
+        <button (click)="carregarContato"> Tentar novamente </button>
+    </div>
+    <div *ngIf="!estaCarregando && !erroCarregamento" class="flex-center">
+    <h4>Nome: {{ contato.nome }} </h4>
+        <p>CPF: {{ contato.cpf }} </p>
+        <p>Banco: {{ contato.banco }} </p>
+        <p> Agência: {{ contato.ag }} </p>
+        <p>Conta corrente: {{ contato.cc }} </p>
+    </div>
+    <div class="col">
+        <button class="btn btn-secondary col-4" (click)="voltar()"> Voltar </button>
+    </div>
+</div>
