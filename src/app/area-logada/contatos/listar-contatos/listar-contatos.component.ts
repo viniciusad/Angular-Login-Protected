@@ -54,22 +54,19 @@ export class ContatosComponent implements OnInit {
   }
 
   deletarContato(idContato) {
-    this.contatosService.deleteContato(idContato)
+    this.contatosService.deleteContato(idContato.toString())
     .subscribe (
-      response => this.onSuccessDeletarContato(),
+      response => this.onSuccessDeletarContato(idContato),
       error => this.onErrorDeletarContato(),
     );
   }
 
-  onSuccessDeletarContato() {
-    console.log('Contato deletado')
-    //faço algo
+  onSuccessDeletarContato(idContato) {
+    this.contatos = this.contatos.filter(contato => contato.id !== idContato);
   }
 
   onErrorDeletarContato() {
     console.log('Erro ao deletar')
-
-    //faço algo
   }
 
 }
