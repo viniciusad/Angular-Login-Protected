@@ -10,6 +10,8 @@ import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import localePt from '@angular/common/locales/pt';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 
 registerLocaleData(localePt,'pt');
@@ -21,11 +23,16 @@ registerLocaleData(localePt,'pt');
   ],
   imports: [
     BrowserModule, 
+    BrowserAnimationsModule,
     AppRoutingModule, 
     SharedModule, 
     HttpClientModule, 
+    ToastrModule.forRoot(), // ToastrModule added
     ],
-  providers: [],
+  providers: [{
+    provide: LOCALE_ID,
+    useValue: 'pt'
+  }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
